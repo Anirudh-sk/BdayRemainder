@@ -1,99 +1,179 @@
-import 'dart:ui';
+import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:bday/Theme/colors.dart';
+import 'package:intl/intl.dart';
 
 class addpage extends StatefulWidget {
-  const addpage({super.key, this.restorationId});
-
-  final String? restorationId;
+  const addpage({super.key});
 
   @override
   State<addpage> createState() => _addpageState();
 }
 
-/// RestorationProperty objects can be used because of RestorationMixin.
-class _addpageState extends State<addpage> with RestorationMixin {
-  // In this example, the restoration ID for the mixin is passed in through
-  // the [StatefulWidget]'s constructor.
-  @override
-  String? get restorationId => widget.restorationId;
-
-  final RestorableDateTime _selectedDate =
-      RestorableDateTime(DateTime(2021, 7, 25));
-  late final RestorableRouteFuture<DateTime?> _restorableDatePickerRouteFuture =
-      RestorableRouteFuture<DateTime?>(
-    onComplete: _selectDate,
-    onPresent: (NavigatorState navigator, Object? arguments) {
-      return navigator.restorablePush(
-        _datePickerRoute,
-        arguments: _selectedDate.value.millisecondsSinceEpoch,
-      );
-    },
-  );
-
-  static Route<DateTime> _datePickerRoute(
-    BuildContext context,
-    Object? arguments,
-  ) {
-    return DialogRoute<DateTime>(
-      context: context,
-      builder: (BuildContext context) {
-        return DatePickerDialog(
-          restorationId: 'date_picker_dialog',
-          initialEntryMode: DatePickerEntryMode.calendarOnly,
-          initialDate: DateTime.now(),
-          firstDate: DateTime(2021),
-          lastDate: DateTime.now(),
-        );
-      },
-    );
-  }
+class _addpageState extends State<addpage> {
+  TextEditingController _email = TextEditingController(text: "");
+  TextEditingController dateInput = TextEditingController();
 
   @override
-  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
-    registerForRestoration(_selectedDate, 'selected_date');
-    registerForRestoration(
-        _restorableDatePickerRouteFuture, 'date_picker_route_future');
-  }
-
-  void _selectDate(DateTime? newSelectedDate) {
-    if (newSelectedDate != null) {
-      setState(() {
-        _selectedDate.value = newSelectedDate;
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-              'Selected: ${_selectedDate.value.day}/${_selectedDate.value.month}/${_selectedDate.value.year}'),
-        ));
-      });
-    }
+  void initState() {
+    dateInput.text = ""; //set the initial value of text field
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: primary,
+      body: getBody(),
+    );
+  }
+
+  Widget getBody() {
+    var size = MediaQuery.of(context).size;
     return SafeArea(
-        child: SingleChildScrollView(
-            child: Column(children: [
-      SizedBox(
-        height: 10,
-      ),
-      Padding(
-          padding: const EdgeInsets.only(left: 25, right: 25),
-          child: Scaffold(
-            body: Center(
-              child: Column(children: [
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(), labelText: "Name"),
+        child: Center(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 50,
+          ),
+          Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 25),
+              decoration: BoxDecoration(
+                  color: white,
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Name",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color(0xff67727d)),
+                    ),
+                    TextField(
+                      controller: _email,
+                      cursorColor: black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.email_outlined),
+                          prefixIconColor: black,
+                          hintText: "Name",
+                          border: InputBorder.none),
+                    ),
+                  ],
                 ),
-                OutlinedButton(
-                  onPressed: () {
-                    _restorableDatePickerRouteFuture.present();
-                  },
-                  child: const Text('Open Date Picker'),
+              )),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 25),
+              decoration: BoxDecoration(
+                  color: white,
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Date",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color(0xff67727d)),
+                    ),
+                    TextField(
+                      controller: dateInput,
+                      //editing controller of this TextField
+                      decoration: InputDecoration(
+                          icon: Icon(Icons.calendar_today), //icon of text field
+                          labelText: "Enter Date" //label text of field
+                          ),
+                      readOnly: true,
+                      //set it true, so that user will not able to edit text
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1950),
+                            //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2100));
+
+                        if (pickedDate != null) {
+                          print(
+                              pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                          String formattedDate =
+                              DateFormat('yyyy-MM-dd').format(pickedDate);
+                          print(
+                              formattedDate); //formatted date output using intl package =>  2021-03-16
+                          setState(() {
+                            dateInput.text =
+                                formattedDate; //set output date to TextField value.
+                          });
+                        } else {}
+                      },
+                    ),
+                    // DatePickerDialog(
+                    //   firstDate: DateTime(1920),
+                    //   lastDate: DateTime.now(),
+                    //   initialDate: DateTime.now(),
+                    // ),
+                  ],
                 ),
-              ]),
+              )),
+          SizedBox(
+            height: 20,
+          ),
+          GestureDetector(
+            child: Container(
+              padding: EdgeInsets.all(16),
+              margin: EdgeInsets.symmetric(horizontal: 25),
+              decoration: BoxDecoration(
+                  color: buttoncolor, borderRadius: BorderRadius.circular(25)),
+              child: Center(
+                child: Text(
+                  "Add Date",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
             ),
-          ))
-    ])));
+          ),
+        ],
+      ),
+    ));
   }
 }
