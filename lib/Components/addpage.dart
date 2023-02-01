@@ -70,21 +70,30 @@ class _addpageState extends State<addpage> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(children: [
-          TextField(
-            decoration: InputDecoration(
-                border: OutlineInputBorder(), labelText: "Name"),
-          ),
-          OutlinedButton(
-            onPressed: () {
-              _restorableDatePickerRouteFuture.present();
-            },
-            child: const Text('Open Date Picker'),
-          ),
-        ]),
+    return SafeArea(
+        child: SingleChildScrollView(
+            child: Column(children: [
+      SizedBox(
+        height: 10,
       ),
-    );
+      Padding(
+          padding: const EdgeInsets.only(left: 25, right: 25),
+          child: Scaffold(
+            body: Center(
+              child: Column(children: [
+                TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: "Name"),
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    _restorableDatePickerRouteFuture.present();
+                  },
+                  child: const Text('Open Date Picker'),
+                ),
+              ]),
+            ),
+          ))
+    ])));
   }
 }

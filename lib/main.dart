@@ -1,4 +1,5 @@
 import 'package:bday/Components/addpage.dart';
+import 'package:bday/Components/listdays.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -28,13 +29,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    addpage(),
-    Text(
-      'List of birthdays',
-      style: optionStyle,
-    ),
-  ];
+  static const List<Widget> _widgetOptions = <Widget>[addpage(), listdays()];
 
   void _onItemTapped(int index) {
     setState(() {
