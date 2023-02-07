@@ -9,14 +9,12 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.8",
-    "@mui/styled-engine-sc": "^5.11.0",
     "expo": "~47.0.12",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
     "react-native": "0.70.5",
-    "styled-components": "^5.3.6"
+    "react-native-paper": "^5.2.0",
+    "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
