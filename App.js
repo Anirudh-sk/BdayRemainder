@@ -13,7 +13,6 @@ import {
   Box,
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
-import { Platform } from "react-native";
 
 // Define the config
 const config = {
@@ -35,7 +34,7 @@ export default function App() {
       >
         <VStack space={5} alignItems="center">
           <NativeBaseIcon />
-          <Heading size="lg">Welcome to NativeBase</Heading>
+          <Heading size="lg">This looks cool</Heading>
           <HStack space={2} alignItems="center">
             <Text>Edit</Text>
             <Box
