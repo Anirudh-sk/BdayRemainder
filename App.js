@@ -12,7 +12,7 @@ import {
   VStack,
   Box,
 } from "native-base";
-import NativeBaseIcon from "./components/NativeBaseIcon";
+import Navbar from "./components/Navbar";
 
 // Define the config
 const config = {
@@ -33,7 +33,6 @@ export default function App() {
         flex={1}
       >
         <VStack space={5} alignItems="center">
-          <NativeBaseIcon />
           <Heading size="lg">This looks cool</Heading>
           <HStack space={2} alignItems="center">
             <Text>Edit</Text>
@@ -61,6 +60,7 @@ export default function App() {
           <ToggleDarkMode />
         </VStack>
       </Center>
+      <Navbar />
     </NativeBaseProvider>
   );
 }
@@ -72,7 +72,7 @@ function ToggleDarkMode() {
     <HStack space={2} alignItems="center">
       <Text>Dark</Text>
       <Switch
-        isChecked={colorMode === "light"}
+        isChecked={colorMode === "dark"}
         onToggle={toggleColorMode}
         aria-label={
           colorMode === "light" ? "switch to dark mode" : "switch to light mode"
