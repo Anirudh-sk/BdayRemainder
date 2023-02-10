@@ -1,21 +1,31 @@
 import * as React from 'react';
-import { Appbar } from 'react-native-paper';
+import { StyleSheet } from 'react-native';
+import { Appbar, FAB, useTheme } from 'react-native-paper';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+const BOTTOM_APPBAR_HEIGHT = 80;
+const MEDIUM_FAB_HEIGHT = 56;
 
 const MyComponent = () => {
-  const _goBack = () => console.log('Went back');
-
-  const _handleSearch = () => console.log('Searching');
-
-  const _handleMore = () => console.log('Shown more');
+  const { bottom } = useSafeAreaInsets();
+  const theme = useTheme();
 
   return (
-    <Appbar.Header color="black">
-      {/* <Appbar.BackAction onPress={_goBack} /> */}
-      <Appbar.Content title="Bday Remainder" color='#E83A59' />
-      <Appbar.Action icon="magnify" onPress={_handleSearch} />
-      <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
+    <Appbar.Header
+    >
+      <Appbar.Action icon="cake" onPress={() => {}} />
+      <Appbar.Content title="Bday Remainder" />
+      
     </Appbar.Header>
   );
 };
+
+const styles = StyleSheet.create({
+  
+  fab: {
+    position: 'absolute',
+    right: 16,
+  },
+});
 
 export default MyComponent;
