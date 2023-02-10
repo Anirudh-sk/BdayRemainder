@@ -6,7 +6,7 @@ const AddButton = () => (
   <FAB
     icon="plus"
     style={styles.fab}
-    color='skyblue'
+    color='#E83A59'
     onPress={() => console.log('Pressed')}
   />
 );

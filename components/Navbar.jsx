@@ -6,15 +6,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const BOTTOM_APPBAR_HEIGHT = 80;
 const MEDIUM_FAB_HEIGHT = 56;
 
-const MyComponent = () => {
+const Navbar = () => {
   const { bottom } = useSafeAreaInsets();
   const theme = useTheme();
 
   return (
-    <Appbar.Header
-    >
-      <Appbar.Action icon="cake" onPress={() => {}} />
-      <Appbar.Content title="Bday Remainder" />
+    <Appbar.Header style={styles.header}>
+      <Appbar.Action color='#E83A59' icon="cake" onPress={() => {}} />
+      <Appbar.Content color='#E83A59' title="Bday Remainder" />
       
     </Appbar.Header>
   );
@@ -22,10 +21,10 @@ const MyComponent = () => {
 
 const styles = StyleSheet.create({
   
-  fab: {
-    position: 'absolute',
-    right: 16,
+  header: {
+    backgroundColor:"#242B2E",
+    
   },
 });
 
-export default MyComponent;
+export default Navbar;
