@@ -9,9 +9,9 @@ const MyComponent = () => {
   const _handleMore = () => console.log('Shown more');
 
   return (
-    <Appbar.Header>
-      <Appbar.BackAction onPress={_goBack} />
-      <Appbar.Content title="Bday Remainder" />
+    <Appbar.Header color="black">
+      {/* <Appbar.BackAction onPress={_goBack} /> */}
+      <Appbar.Content title="Bday Remainder" color='#E83A59' />
       <Appbar.Action icon="magnify" onPress={_handleSearch} />
       <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
     </Appbar.Header>
