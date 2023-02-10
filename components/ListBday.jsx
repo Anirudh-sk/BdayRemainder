@@ -18,10 +18,10 @@ const ListBday = () => {
       <Text style={{textAlign:"center", color:"#E83A59"}}  variant='displaySmall'>{"\n"}Upcoming Birthdays{"\n"}</Text>
 
       <DataTable.Row >
-        <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-        <DataTable.Cell numeric>Feb 15</DataTable.Cell>
-        <DataTable.Cell numeric><Button icon='lead-pencil' ></Button></DataTable.Cell>
-        <DataTable.Cell numeric><Button icon='delete' ></Button></DataTable.Cell>
+        <DataTable.Cell >Frozen yogurt</DataTable.Cell>
+        <DataTable.Cell >Feb 15</DataTable.Cell>
+        <DataTable.Cell ><Button icon='lead-pencil' ></Button></DataTable.Cell>
+        <DataTable.Cell ><Button icon='delete' ></Button></DataTable.Cell>
       </DataTable.Row>
 
       <DataTable.Row>
