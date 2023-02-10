@@ -14,6 +14,7 @@ const Navbar = () => {
     <Appbar.Header style={styles.header}>
       <Appbar.Action color='#E83A59' icon="cake" onPress={() => {}} />
       <Appbar.Content color='#E83A59' title="Bday Remainder" />
+      <Appbar.Action color='#E83A59' icon="alert-circle" onPress={() => {}} />
       
     </Appbar.Header>
   );
