@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DataTable } from 'react-native-paper';
+import { Button, DataTable, Text } from 'react-native-paper';
 
 
 const ListBday = () => {
@@ -7,22 +7,28 @@ const ListBday = () => {
 
   return (
     <DataTable>
-      <DataTable.Header>
+      {/* <DataTable.Header>
         <DataTable.Title>Name</DataTable.Title>
-        <DataTable.Title numeric>Date</DataTable.Title>
-        <DataTable.Title numeric>Delete</DataTable.Title>
-      </DataTable.Header>
+        <DataTable.Title>Date</DataTable.Title>
+        <DataTable.Title>Edit</DataTable.Title>
+        <DataTable.Title>Delete</DataTable.Title>
+      </DataTable.Header> */}
+      
 
-      <DataTable.Row>
+      <Text style={{textAlign:"center", color:"#E83A59"}}  variant='displaySmall'>{"\n"}Upcoming Birthdays{"\n"}</Text>
+
+      <DataTable.Row >
         <DataTable.Cell>Frozen yogurt</DataTable.Cell>
         <DataTable.Cell numeric>Feb 15</DataTable.Cell>
-        <DataTable.Cell numeric>6.0</DataTable.Cell>
+        <DataTable.Cell numeric><Button icon='lead-pencil' ></Button></DataTable.Cell>
+        <DataTable.Cell numeric><Button icon='delete' ></Button></DataTable.Cell>
       </DataTable.Row>
 
       <DataTable.Row>
         <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
         <DataTable.Cell numeric>Feb 20</DataTable.Cell>
-        <DataTable.Cell numeric>8.0</DataTable.Cell>
+        <DataTable.Cell numeric><Button icon='lead-pencil' ></Button></DataTable.Cell>
+        <DataTable.Cell numeric><Button icon='delete' ></Button></DataTable.Cell>
       </DataTable.Row>
 
       
