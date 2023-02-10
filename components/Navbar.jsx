@@ -23,7 +23,7 @@ const Navbar = () => {
 const styles = StyleSheet.create({
   
   header: {
-    backgroundColor:"#242B2E",
+    backgroundColor:"#141E30",
     
   },
 });

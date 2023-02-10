@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     margin: 16,
     right: 0,
     bottom: 0,
-    backgroundColor:'#242B2E'
+    backgroundColor:'#141E30'
     
   },
 })
