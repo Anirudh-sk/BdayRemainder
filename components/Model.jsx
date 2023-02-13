@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Modal, Portal, Text, Button, Provider } from 'react-native-paper';
+import { Modal, Portal, Text, Button, Provider, TextInput } from 'react-native-paper';
 
 const Model = () => {
   const [visible, setVisible] = React.useState(false);
@@ -12,7 +12,11 @@ const Model = () => {
     <Provider>
       <Portal>
         <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-          <Text>Example Modal.  Click outside this area to dismiss.</Text>
+          <Text>
+            Add the birthday
+          </Text>
+          <TextInput label="Name"/>
+          
         </Modal>
       </Portal>
       <Button style={{marginTop: 30}} onPress={showModal}>
