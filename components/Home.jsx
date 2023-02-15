@@ -9,8 +9,8 @@ export default function Home() {
     return (
         <>
             <Surface style={{ backgroundColor: "#0D0D0D", height: "100%" }} elevation={12}>
-                <ListBday />
                 <Model />
+                <ListBday />
 
 
 
