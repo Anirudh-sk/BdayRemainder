@@ -10,7 +10,7 @@ const ModalDemo = () => {
   };
   return (
     <View style={styles.container}>
-      <Button title="Add Birthday"  onPress={toggleModal} />
+      <Button title="Add Birthdays"  onPress={toggleModal} />
       <Modal
         isVisible={isModalVisible}>
         <View>
