@@ -46,6 +46,13 @@ const ListBday = () => {
         <DataTable.Cell textStyle={{color:"white"}} numeric><Button textColor='#B4161B' icon='delete' ></Button></DataTable.Cell>
       </DataTable.Row>
       
+      <DataTable.Row>
+        <DataTable.Cell textStyle={{color:"white"}} >Ice cream sandwich</DataTable.Cell>
+        <DataTable.Cell textStyle={{color:"white"}} numeric>Feb 20</DataTable.Cell>
+        <DataTable.Cell textStyle={{color:"white"}} numeric><Button textColor='#EDC126' icon='lead-pencil' ></Button></DataTable.Cell>
+        <DataTable.Cell textStyle={{color:"white"}} numeric><Button textColor='#B4161B' icon='delete' ></Button></DataTable.Cell>
+      </DataTable.Row>
+      
 
       
     </DataTable>
